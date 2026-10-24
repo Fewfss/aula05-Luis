@@ -16,3 +16,14 @@ function calcularFrete(distanciaKm) {
 
 // deixa a função visível para outros arquivos (os testes)
 module.exports = { calcularFrete };
+
+// novo teste: entrega acima de 5 km
+test('entrega de 10 km custa R$ 12', () => {
+// R$ 7 de taxa fixa + 5 km excedentes x R$ 1 = R$ 12
+assert.strictEqual(calcularFrete(10), 12);
+});
+// novo teste: distância negativa deve dar erro
+test('distância negativa lança erro', () => {
+// assert.throws passa SÓ SE a função der erro com essa mensagem
+assert.throws(() => calcularFrete(-1), /distância inválida/);
+});

@@ -1,0 +1,24 @@
+# testes.yml = a "receita" que o robô do GitHub segue a cada push
+
+# nome que aparece na aba Actions
+name: Testes automatizados
+
+# gatilho: roda sempre que alguém envia (push) um commit
+on: push
+
+jobs:
+  # nome do trabalho (job) deste workflow
+  testar:
+    # tipo de máquina temporária que o robô usa (Linux Ubuntu 24.04, já com Node instalado)
+    runs-on: ubuntu-24.04
+    steps:
+      # passo 1: baixa o código do repositório para dentro da máquina
+      - uses: actions/checkout@v6
+
+      # passo 2: roda os testes; se algum falhar, o passo falha e o pipeline fica vermelho
+      - name: Rodar os testes
+        run: npm test
+
+      # passo 3: mostra a cobertura (só roda se o passo 2 passou)
+      - name: Relatório de cobertura
+        run: npm run cobertura

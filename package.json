@@ -1,0 +1,8 @@
+{
+  "name": "loja-desconto",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "node --test",
+    "cobertura": "node --test --experimental-test-coverage"
+  }
+}

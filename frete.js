@@ -11,7 +11,7 @@ function calcularFrete(distanciaKm) {
     return 7;
   }
   // acima de 5 km: R$ 7 mais R$ 1 por km que passou dos 5
-  return 7 - (distanciaKm - 5);
+  return 7 + (distanciaKm - 5);
 }
 
 // deixa a função visível para outros arquivos (os testes)

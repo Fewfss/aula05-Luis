@@ -9,7 +9,7 @@ function calcularDesconto(preco, percentual) {
     throw new Error('percentual inválido');
   }
   // preço final = preço - desconto (preço x percentual/100)
-  return preco + preco * (percentual / 100);
+  return preco - preco * (percentual / 100);
 }
 
 // deixa a função visível para outros arquivos (os testes)
